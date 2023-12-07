@@ -1,0 +1,6 @@
+venv/
+datadump.json
+db.sqlite3
+*log
+app/
+env_var.json

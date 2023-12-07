@@ -1,0 +1,36 @@
+{% extends 'bills/main.html' %}
+{% load static %}
+{% load crispy_forms_tags %} 
+
+{% block content %}
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="container py-3">
+                <!-- <span class="mb-4 text-center" style="font-weight: 800; font-size: 30px;">Buy Airtime</span> -->
+        
+                <div class="pb-3">
+                    {{form.account|as_crispy_field}}
+                </div>
+                <div class="pb-3">
+                    {{form.amount|as_crispy_field}}
+                </div>
+                <div class="pb-3">
+                    {{form.phone|as_crispy_field}}
+                </div>
+                <div class="pb-3">
+                    {{form.service_type|as_crispy_field}}
+                </div>
+                <div class="pb-3">
+                    {{form.transaction_Pin|as_crispy_field}}
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-lg shadow-sm"; style=" border: none; border-radius: 30px; background-color: #B3403D;"">Buy Electricity</button>
+            </div>
+            
+        </form> 
+    </div>
+
+{% include 'bills/footer.html' %}
+{% endblock content %}
+    

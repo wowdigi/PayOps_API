@@ -1,0 +1,249 @@
+{% extends 'bills/main.html' %}
+{% load static %}
+
+{% block content %}
+    <script>
+        function populate(s1, s2){
+            var s1 = document.getElementById(s1);
+            var s2 = document.getElementById(s2);
+            s2.innerHTML = '';
+            if (s1.value == 'mtn'){
+                var optionArray = 
+                [
+                    '100|NGN 100 for 75MB Daily for Daily',
+                    '200|NGN 200 for 200MB 2-Day Plan for Daily',
+                    '300|NGN 300 for 350MB for Weekly',
+                    '500|NGN 500 for 750MB 2-Week Plan for Weekly',
+                    '1000|NGN 1000 for 1.5GB 1-Month Mobile for Monthly',
+                    '1200|NGN 1200 for 2GB Monthly for Monthly',
+                    '1500|NGN 1500 for 6GB for Weekly',
+                    '2000|NGN 2000 for 4.5GB 1-Month All Day plan for Monthly',
+                    '2500|NGN 2500 for 6GB for Monthly',
+                    '3000|NGN 3000 for 10GB for Monthly',
+                    '3500|NGN 3500 for 12GB for Monthly',
+                    '5000|NGN 5000 for 20GB for Monthly',
+                    '10000|NGN 10000 for 40GB for Monthly',
+                    '15000|NGN 15000 for 75GB for Monthly',
+                    '20000|NGN 20000 for 75GB for 60Days',
+                    '30000|NGN 30000 for 120GB for 60Days',
+                    '50000|NGN 50000 for 150GB for 90Days',
+                    '75000|NGN 75000 for 250GB for 90Days',
+                    '100000|NGN 100000 for 325GB for 6-Months',
+                    '120000|NGN 75000 for 400GB for 1-Year',
+                    '300000|NGN 300000 for 1000GB for 1-Year',
+                    '450000|NGN 450000 for 1500GB for 1-Year',
+
+                ]
+            }
+            else if (s1.value == 'airtel'){
+                var optionArray = 
+                [
+                    '49.9|NGN 50 for 40MB for 1 Day',
+                    '99|NGN 100 for 100MB for 1 Day',
+                    '199.03|NGN 200 for 200MB for 3 Days',
+                    '299.02|NGN 300 for 350MB for 7 Days',
+                    '299.03|NGN 300 for 1GB for 1 Day',
+                    '499|NGN 500 for 750MB for 14 Days',
+                    '499.03|NGN 500 for 2GB for 2 Days',
+                    '999|NGN 1000 for 1.5GB for 30 Days',
+                    '1199|NGN 1200 for 2GB for 30 Days',
+                    '1499.03|NGN 1500 for 6GB for 7 Days',
+                    '1499.01|NGN 1500 for 3GB for 30 Days',
+                    '1999|NGN 2000 for 4.5GB for 30 Days',
+                    '2499.01|NGN 2500 for 6GB for 30 Days',
+                    '2999.02|NGN 3000 for 8GB for 30 Days',
+                    '3999.01|NGN 4000 for 11GB for 30 Days',
+                    '4999|NGN 5000 for 15GB for 30 Days',
+                    '7999.02|NGN 8000 for 25GB for 30 Days',
+                    '9999|NGN 10000 for 40GB for 30 Days',
+                    '14999|NGN 15000 for 75GB for 30 Days',
+                    '19999.02|NGN 20000 for 120GB for 30 Days',
+                    '29999.02|NGN 30000 for 200GB for 30 Days',
+                    '35999.02|NGN 36000 for 280GB for 30 Days',
+                    '49999.02|NGN 50000 for 400GB for 90 Days',
+                    '59999.02|NGN 60000 for 500GB for 120 Days',
+                    '99999.02|NGN 100000 for 1TB, 365 days',
+
+                ]
+            }
+            else if (s1.value == 'glo'){
+                var optionArray = 
+                [
+                    'DATA-15|NGN 25, 250MB for 1 day',
+                    'DATA-30|NGN 50, 500MB for 1 day',
+                    'DATA-18|NGN 50, 50MB for 1 day',
+                    'DATA-21|NGN 100, 150MB for 1 day',
+                    'DATA-31|NGN 100, 1GB for 5 days',
+                    'DATA-28|NGN 200 350MB for 2 days',
+                    'DATA-37|NGN 200 1.25GB for 1 day',
+                    'DATA-27|NGN 500, 1.35GB for 14 days',
+                    'DATA-2|NGN 1000, 2.9GB for 30 days',
+                    'DATA-24|NGN 1500, 7GB for 7 days',
+                    'DATA-16|NGN 1500, 4.1GB for 30 days',
+                    'DATA-25|NGN 2000, 5.8GB for 30 days',
+                    'DATA-19|NGN 25000, 7.7GB for 30 days',
+                    'DATA-23|NGN 3000, 10GB for 30 days',
+                    'DATA-12|NGN 4000, 13.25GB for 30 days',
+                    'DATA-5|NGN 5000, 18.25GB for 30 days',
+                    'DATA-4|NGN 8000, 29.5GB for 30 days',
+                    'DATA-10|NGN 10000, 50GB for 30 days',
+                    'DATA-11|NGN 15000, 93GB for 30 days',
+                    'DATA-20|NGN 18000, 119GB for 30 days',
+                    'DATA-33|NGN 20000, 138GB for 30 days',
+                    'DATA-64|NGN 30000, 225GB for 30 days',
+                    'DATA-434|NGN 30000, 225GB for 30 days',
+                    'DATA-65|NGN 36000, 300GB for 30 days',
+                    'DATA-435|NGN 36000, 300GB for 30 days',
+                    'DATA-66|NGN 50000, 425GB for 90 days',
+                    'DATA-436|NGN 50000, 425GB for 90 days',
+                    'DATA-67|NGN 60000, 525GB for 120 days',
+                    'DATA-437|NGN 60000, 525GB for 120 days',
+                    'DATA-68|NGN 75000, 675GB for 120 days',
+                    'DATA-438|NGN 75000, 675GB for 120 days',
+                    'DATA-69|NGN 100000, 1TB for 365 days',
+                    'DATA-439|NGN 100000, 1TB for 365 days',
+
+                ]
+            }
+            else if (s1.value == '9mobile'){
+                var optionArray = 
+                [
+                    '200|NGN 200, 200MB for 7 days',
+                    '1000|NGN 1000, 1GB for 30 days',
+                    '1200|NGN 1200, 1.5GB for 30 days',
+                    '2000|NGN 2000, 2.5GB for 30 days',
+                    '2500|NGN 2500, 3.5GB for 30 days',
+                    '3500|NGN 3500, 5GB for 30 days',
+                    '8000|NGN 8000, 11.5GB for 30 days',
+                    '10000|NGN 10000, 15GB for 30 days',
+                    '18000|NGN 18000, 27.5GB for 30 days',
+                    '27500|NGN 27500, 30GB for 90 days',
+                    '55000|NGN 55000, 60GB for 180 days',
+                    '100000|NGN 100000, 100GB for 100 days',
+                    '110000|NGN 100000, 120GB for 365 days',
+
+                ]
+            }
+            else if (s1.value == 'smile'){
+                var optionArray = 
+                [
+                    '624|NGN 300, 1GB FlexiDaily',
+                    '625|NGN 500, 2.5GB FlexiDaily',
+                    '626|NGN 500, 1GB FlexiWeekly',
+                    '516|NGN 510, SmileVoice ONLY 65',
+                    '606|NGN 1000, 1.5GB Bigga',
+                    '627|NGN 1000, 2GB FlexiWeekly',
+                    '517|NGN 1020, SmileVoice ONLY 135',
+                    '413|NGN 1020, 2GB MidNite',
+                    '607|NGN 1200, 2GB Bigga',
+                    '608|NGN 1500, 3GB Bigga',
+                    '628|NGN 1500, 6GB FlexiWeekly',
+                    '698|NGN 1500, SmileVoice ONLY 150',
+                    '414|NGN 1530, 3GB MidNite',
+                    '415|NGN 1530, 3GB Weekend ONLY',
+                    '620|NGN 2000, 5GB Bigga',
+                    '700|NGN 2500, SmileVoice ONLY 175',
+                    '609|NGN 2500, 6.5GB Bigga',
+                    '610|NGN 3000, 8GB Bigga',
+                    '518|NGN 3070, SmileVoice ONLY 430',
+                    '611|NGN 3500, 10GB Bigga',
+                    '612|NGN 4000, 12GB Bigga',
+                    '699|NGN 4000, SmileVoice ONLY 450',
+                    '613|NGN 5000, 15GB Bigga',
+                    '701|NGN 5000, Smile Voice ONLY 500',
+                    '614|NGN 6000, 20GB Bigga',
+                    '615|NGN 8000, 30GB Bigga',
+                    '687|NGN 9000, 15GB 365',
+                    '616|NGN 10000, 40GB Bigga',
+                    '629|NGN 10000, UnlimitedLite',
+                    '617|NGN 13500, 60GB Bigga',
+                    '618|NGN 15000, 75GB Bigga',
+                    '630|NGN 15000, UnlimitedEssential',
+                    '619|NGN 18000, 100GB Bigga',
+                    '688|NGN 19000, 35GB 365',
+                    '668|NGN 19800, 130GB Bigga',
+                    '665|NGN 20000, 90GB Jumbo',
+                    '696|NGN 20000, Promo - Freedom 3Mbps (No FUP)',
+                    '697|NGN 24000, Promo - Freedom 6Mbps (No FUP)',
+                    '689|NGN 32000, 70GB 365',
+                    '666|NGN 34000, 160GB Jumbo',
+                    '671|NGN 36000, BestEffort Freedom',
+                    '667|NGN 40000, 200GB Jumbo',
+                    '664|NGN 50000, 125GB 365',
+                    '673|NGN 100000, 500GB 365',
+                    '674|NGN 120000, 1TB 365',
+
+                ]
+            }
+
+            for(var option in optionArray){
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option");
+                newOption.value = pair[0];
+                newOption.innerHTML = pair[1];
+                s2.options.add(newOption);
+            }
+        }
+    </script>
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <p class="mt-3"> Network </p>
+        <select style="border-radius: 15px;" class='form-select' name="service_type" id="service_type" onchange="populate(this.id, 'data_code')">
+            <option value=""></option>
+            <option value="mtn">MTN</option>
+            <option value="glo">Glo</option>
+            <option value="airtel">Airtel</option>
+            <option value="9mobile">9Mobile</option>
+            <option value="smile">Smile</option>
+        </select>
+        <p class="mt-4"> Data Bundle </p>
+        <select style="border-radius: 15px;" class='form-select' name="datacode" id="data_code"></select>
+
+        <p class="mt-4">Phone Number</p>
+        <input id="phone-number" style="border-radius: 15px;" name="phone" type="integer" class="form-control" onkeyup="inputDetails()" onkeypress="return validateNumberKey(event)">
+        <p class="mt-4">Amount</p>
+        <input id="amount" style="border-radius: 15px;" name="amount" type="integer" class="form-control" onkeyup="inputDetails()" onkeypress="return validateNumberKey(event)">
+        <p class="mt-4">Transaction Pin</p>
+        <input id="pin" style="border-radius: 15px;" name="transaction_Pin" maxlength="4" type="password" class="form-control" onkeyup="inputDetails()" onkeypress="return validateNumberKey(event)">
+        <button id="submit-btn" type="submit" onclick="verify()" disabled class="btn btn-primary btn-lg shadow-sm my-4 mx-auto"; style=" border: none; border-radius: 30px; background-color: #B3403D;"">Buy Data</button>
+    </div>
+</form>
+
+<script type="text/javascript">
+    
+
+    var id_service = document.getElementById("service_type");
+    var id_data = document.getElementById("data_code");
+    var phone_number = document.getElementById("phone-number");
+    var id_amount = document.getElementById("amount");
+    var id_pin = document.getElementById("pin");
+
+    var submit_btn = document.getElementById("submit-btn");
+
+    function inputDetails(){
+        if(id_service.value != "" && id_data.value != "" && phone_number.value != "" && id_amount.value != "" && id_pin.value != "") { 
+            submit_btn.disabled = false; 
+            submit_btn.setAttribute('type', 'sumbit');
+            
+        }
+    }
+
+    function verify(){
+        if(id_service.value == "" || id_data.value == "" || phone_number.value == "" || id_amount.value == "" || id_pin.value == "") { 
+            submit_btn.disabled = true; 
+            submit_btn.setAttribute('type', 'button');
+        }
+    }
+
+    function validateNumberKey(e)
+    {
+        var charCode = (e.which) ? e.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+
+        return true;
+    }
+</script>
+{% include 'bills/footer.html' %}
+{% endblock content %}

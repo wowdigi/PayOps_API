@@ -1,0 +1,19 @@
+{% extends 'providusboard/base.html' %}
+
+
+
+
+
+{% block content %}
+            <div class="container">
+
+                <div class="card m-2 p-2">
+                    <p class="ml-1">CBA ID: {{cbaId}} </p>
+                    <p class="ml-1">Email Address: {{emailAddress}}</p>
+                    <p class="ml-1">Phone Number: {{phoneNumber}}</p>
+                    <p class="text text-sucess ml-2"><i class="fa fa-check-square-o"></i>Dear {{accountName}} your account Balance  is {{availableBal}}</p>
+            
+                </div>
+                
+            </div>
+{% endblock content %}

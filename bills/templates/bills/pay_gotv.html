@@ -1,0 +1,198 @@
+{% extends 'bills/main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<script>
+    function populate(s1, s2){
+        var s1 = document.getElementById(s1);
+        var s2 = document.getElementById(s2);
+        s2.innerHTML = '';
+        if (s1.value == 'GOHAN'){
+            var optionArray = 
+            [
+                '800|NGN 800, 1 Month',
+                '1600|NGN 1600, 2 Month',
+                '2400|NGN 2400, 3 Month',
+                '3200|NGN 3200, 4 Month',
+                '4000|NGN 4000, 5 Month',
+                '4800|NGN 4800, 6 Month',
+                '5600|NGN 5600, 7 Month',
+                '6400|NGN 6400, 8 Month',
+                '7200|NGN 7200, 9 Month',
+                '8000|NGN 8000, 10 Month',
+                '8800|NGN 8000, 11 Month',
+                '9600|NGN 9600, 12 Month',
+            ]
+        }
+        else if (s1.value == 'GOLITE'){
+            var optionArray = 
+            [
+                
+                '2100|NGN 2100, 3 Month',
+                '4200|NGN 4200, 6 Month',
+                '6300|NGN 6300, 9 Month',
+                '8400|NGN 8400, 12 Month',
+
+            ]
+
+        }
+        else if (s1.value == 'GOLTANL'){
+            var optionArray = 
+            [
+                '6200|NGN 6200, 12 Month',
+
+            ]
+
+        }
+        else if (s1.value == 'GOTVMAX'){
+            var optionArray = 
+            [
+                
+                '3600|NGN 3600, 1 Month',
+                '7200|NGN 7200, 2 Month',
+                '10800|NGN 10800, 3 Month',
+                '14400|NGN 14400, 4 Month',
+                '18000|NGN 18000, 5 Month',
+                '21600|NGN 21600, 6 Month',
+                '25200|NGN 25200, 7 Month',
+                '28800|NGN 28800, 8 Month',
+                '32400|NGN 32400, 9 Month',
+                '36000|NGN 36000, 10 Month',
+                '39600|NGN 39600, 11 Month',
+                '43200|NGN 43200, 12 Month',
+            ]
+
+        }
+        else if (s1.value == 'GOTVNJ1'){
+            var optionArray = 
+            [
+                
+                '1640|NGN 1640, 1 Month',
+                '3280|NGN 3280, 2 Month',
+                '4920|NGN 4920, 3 Month',
+                '6560|NGN 6560, 4 Month',
+                '8200|NGN 8200, 5 Month',
+                '9840|NGN 9840, 6 Month',
+                '11480|NGN 11480, 7 Month',
+                '13120|NGN 13120, 8 Month',
+                '14760|NGN 14760, 9 Month',
+                '16400|NGN 16400, 10 Month',
+                '18040|NGN 18040, 11 Month',
+                '19680|NGN 19680, 12 Month',
+            ]
+
+        }
+        else if (s1.value == 'GOTVNJ2'){
+            var optionArray = 
+            [
+                
+                '2460|NGN 2460, 1 Month',
+                '4920|NGN 4920, 2 Month',
+                '7380|NGN 7380, 3 Month',
+                '9840|NGN 9840, 4 Month',
+                '12300|NGN 12300, 5 Month',
+                '123000|NGN 14760, 6 Month',
+                '143500|NGN 17220, 7 Month',
+                '19680|NGN 19680, 8 Month',
+                '22140|NGN 22140, 9 Month',
+                '24600|NGN 24600, 10 Month',
+                '27060|NGN 27060, 11 Month',
+                '29520|NGN 29520, 12 Month',
+            ]
+
+        }
+        for(var option in optionArray){
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option");
+                newOption.value = pair[0];
+                newOption.innerHTML = pair[1];
+                s2.options.add(newOption);
+            }
+    }    
+</script>
+
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="container py-3">
+            
+            <p class="mt-4">Smart Card Number</p>
+            <input id="smart-card" style="border-radius: 15px;" name="smartcard_number" type="text" class="form-control" onkeyup="inputDetails()">
+
+            <p class="mt-4">Bouquets</p>
+            <select style="border-radius: 15px;" class='form-select' name="code" id="code" onchange="populate(this.id, 'total_amount')">
+                <option value=""></option>
+                <option value="GOHAN">GOtv Smallie - monthly</option>
+                <option value="GOLITE">GOtv Smallie - quarterly</option>
+                <option value="GOLTANL">GOtv Smallie - yearly</option>
+                <option value="GOTVMAX">GOtv Max</option>
+                <option value="GOTVNJ1">GOtv Jinja Bouquet</option>
+                <option value="GOTVNJ2">GOtv Jolli Bouquet</option>
+            </select>
+
+            <p class="mt-4">Price</p>
+            <select style="border-radius: 15px;" class='form-select' name="total_amount" id="total_amount"></select>
+            <p class="mt-4">Number of Months</p>
+            <select style="border-radius: 15px;" class='form-select' name="months" id="months">
+            <option value=""></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            </select>
+            <p class="mt-4">Transaction Pin</p>
+            <input id="pin" style="border-radius: 15px;" name="transaction_Pin" maxlength="4" type="password" class="form-control" onkeyup="inputDetails()" onkeypress="return validateNumberKey(event)">
+            <button id="submit-btn" onclick="verify()" disabled type="submit" type="submit" class="btn btn-primary btn-lg mt-3 shadow-sm"; style=" border: none; border-radius: 30px; background-color: #B3403D;"">Pay GOTV</button>
+        </div>
+        
+    </form> 
+</div>
+
+<script type="text/javascript">
+    
+
+    var id_smartcrd = document.getElementById("smart-card");
+    var id_code = document.getElementById("code");
+    var id_amount= document.getElementById("total_amount");
+    var id_months = document.getElementById("months");
+    var id_pin = document.getElementById("pin");
+
+    var submit_btn = document.getElementById("submit-btn");
+
+    function inputDetails(){
+        if(id_smartcrd.value != "" && id_code.value != "" && id_amount.value != "" && id_months.value != "" && id_pin.value != "") { 
+            submit_btn.disabled = false; 
+            submit_btn.setAttribute('type', 'sumbit');
+            
+        }
+    }
+
+    function verify(){
+        if(id_months.value == "" || id_code.value == "" || id_amount.value == "" || id_months.value == "" || id_pin.value == "") { 
+            submit_btn.disabled = true; 
+            submit_btn.setAttribute('type', 'button');
+        }
+    }
+
+    function validateNumberKey(e)
+    {
+        var charCode = (e.which) ? e.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+
+        return true;
+    }
+</script>
+
+{% include 'bills/footer.html' %}
+{% endblock content %}
+    

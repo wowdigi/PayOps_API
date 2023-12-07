@@ -1,0 +1,11 @@
+{% load static %}
+
+<section class="text-center py-3 footer-page">
+    <h5 class="p-2 text text-small">Do you still want to carry out another transaction?</h5>
+    <a href="{% url 'pay' %}" class="text text-small text-success">
+        <img src="{% static '/images/geekops-logo.png' %}" alt="geekops"> Yes
+    </a>   |   
+    <a href="{{redirect_url}}" class="text text-small text-danger">
+        <img src="{% static '/images/left.png' %}" alt="left-arrow"> No
+    </a>
+</section>

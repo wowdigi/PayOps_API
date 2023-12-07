@@ -1,0 +1,296 @@
+{% extends 'bills/main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<script>
+    function populate(s1, s2){
+        var s1 = document.getElementById(s1);
+        var s2 = document.getElementById(s2);
+        s2.innerHTML = '';
+        if (s1.value == 'novaday'){
+            var optionArray = 
+            [
+                '90|NGN 90',
+                
+            ]
+        }
+        else if (s1.value == 'novaweek'){
+            var optionArray = 
+            [
+                
+            '300|NGN 300',                
+
+            ]
+
+        }
+        else if (s1.value == 'nova'){
+            var optionArray = 
+            [
+
+            '900|NGN 900',
+
+            ]
+
+        }
+        else if (s1.value == 'basicday'){
+            var optionArray = 
+            [
+                
+            '160|NGN 160',
+            ]
+
+        }
+        else if (s1.value == 'basicweek'){
+            var optionArray = 
+            [
+                
+            '600|NGN 600',
+
+            ]
+
+        }
+        else if (s1.value == 'basic'){
+            var optionArray = 
+            [
+                
+            '1700|NGN 1700',
+                
+            ]
+
+        }
+        else if (s1.value == 'classicday'){
+            var optionArray = 
+            [
+                
+                '320|NGN 320',
+                
+            ]
+
+        }
+        else if (s1.value == 'classicweek'){
+            var optionArray = 
+            [
+                
+                '1200|NGN 1200',
+
+            ]
+
+        }
+        else if (s1.value == 'classic'){
+            var optionArray = 
+            [
+                
+                '2500|NGN 2500',
+                
+            ]
+
+        }
+        else if (s1.value == 'novadishday'){
+            var optionArray = 
+            [
+                
+                '90|NGN 90',
+                
+            ]
+
+        }
+        else if (s1.value == 'novadishweek'){
+            var optionArray = 
+            [
+                
+                '300|NGN 300',
+                
+            ]
+
+        }
+        else if (s1.value == 'novadish'){
+            var optionArray = 
+            [
+                
+                
+                '900|NGN 900',
+
+            ]
+
+        }
+        else if (s1.value == 'sportplus'){
+            var optionArray = 
+            [
+                
+                '1200|NGN 1200',
+
+            ]
+
+        }
+        else if (s1.value == 'smartday'){
+            var optionArray = 
+            [
+
+                '200|NGN 200',
+                
+            ]
+
+        }
+        else if (s1.value == 'smartweek'){
+            var optionArray = 
+            [
+                
+                '700|NGN 700',
+
+            ]
+
+        }
+        else if (s1.value == 'smart'){
+            var optionArray = 
+            [
+                
+                '2200|NGN 220',
+                
+            ]
+
+        }
+        else if (s1.value == 'superday'){
+            var optionArray = 
+            [
+                
+                '400|NGN 400',
+                
+            ]
+
+        }
+        else if (s1.value == 'superweek'){
+            var optionArray = 
+            [
+                
+                '1500|NGN 1500',
+            ]
+
+        }
+        else if (s1.value == 'super'){
+            var optionArray = 
+            [
+                
+                '4200|NGN 4200',
+                
+            ]
+
+        }
+        else if (s1.value == 'chinese'){
+            var optionArray = 
+            [
+                
+                '600|NGN 600',
+
+            ]
+
+        }
+        
+        for(var option in optionArray){
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option");
+                newOption.value = pair[0];
+                newOption.innerHTML = pair[1];
+                s2.options.add(newOption);
+            }
+    }    
+</script>
+
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="container py-3">
+            
+            <p class="mt-4">Smart Card Number</p>
+            <input id="smart-card" style="border-radius: 15px;" name="smartcard_number" type="text" class="form-control" onkeyup="inputDetails()">
+
+            <p class="mt-4">Bouquets</p>
+            <select style="border-radius: 15px;" class='form-select' name="code" id="code" onchange="populate(this.id, 'total_amount')">
+                <option value=""></option>
+                <option value="novaday">Nova (Antenna) - Daily</option>
+                <option value="novaweek">Nova (Antenna) - Weekly</option>
+                <option value="nova">Nova (Antenna) - Monthly</option>
+                <option value="basicday">Basic (Antenna) - Daily</option>
+                <option value="basicweek">Basic (Antenna) - Weekly</option>
+                <option value="basic">Basic (Antenna) - Monthly</option>
+                <option value="classicday">Classic (Antenna) - Daily</option>
+                <option value="classicweek">Classic (Antenna) - Weekly</option>
+                <option value="classic">Classic (Antenna) - Monthly</option>
+                <option value="novadishday">Nova (Dish) - Daily</option>
+                <option value="novadishweek">Nova (Dish) - Weekly</option>
+                <option value="novadish">Nova (Dish) - Monthly</option>
+                <option value="sportplus">Sport Plus (Dish) - Monthly</option>
+                <option value="smartday">Smart (Dish) - Daily</option>
+                <option value="smartweek">Smart (Dish) - Weekly</option>
+                <option value="smart">Smart (Dish) - Monthly</option>
+                <option value="superday">Super (Dish) - Daily</option>
+                <option value="superweek">Super (Dish) - Weekly</option>
+                <option value="super">Super (Dish) - Monthly</option>
+                <option value="chinese">Startimes Chinese (Dish)</option>
+            </select>
+
+            <p class="mt-4">Price</p>
+            <select style="border-radius: 15px;" class='form-select' name="total_amount" id="total_amount"></select>
+            <p class="mt-4">Number of Months</p>
+            <select style="border-radius: 15px;" class='form-select' name="months" id="months">
+            <option value=""></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            </select>
+            <p class="mt-4">Transaction Pin</p>
+            <input id="pin" style="border-radius: 15px;" name="transaction_Pin" maxlength="4" type="password" class="form-control" onkeyup="inputDetails()" onkeypress="return validateNumberKey(event)">
+            <button id="submit-btn" onclick="verify()" disabled type="submit" type="submit" class="btn btn-primary btn-lg mt-3 shadow-sm"; style=" border: none; border-radius: 30px; background-color: #B3403D;"">Pay Startimes</button>
+        </div>
+        
+    </form> 
+</div>
+
+<script type="text/javascript">
+    
+
+    var id_smartcrd = document.getElementById("smart-card");
+    var id_code = document.getElementById("code");
+    var id_amount= document.getElementById("total_amount");
+    var id_months = document.getElementById("months");
+    var id_pin = document.getElementById("pin");
+
+    var submit_btn = document.getElementById("submit-btn");
+
+    function inputDetails(){
+        if(id_smartcrd.value != "" && id_code.value != "" && id_amount.value != "" && id_months.value != "" && id_pin.value != "") { 
+            submit_btn.disabled = false; 
+            submit_btn.setAttribute('type', 'sumbit');
+            
+        }
+    }
+
+    function verify(){
+        if(id_months.value == "" || id_code.value == "" || id_amount.value == "" || id_months.value == "" || id_pin.value == "") { 
+            submit_btn.disabled = true; 
+            submit_btn.setAttribute('type', 'button');
+        }
+    }
+
+    function validateNumberKey(e)
+    {
+        var charCode = (e.which) ? e.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+
+        return true;
+    }
+</script>
+
+{% include 'bills/footer.html' %}
+{% endblock content %}
+    

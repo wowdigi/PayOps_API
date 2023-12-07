@@ -1,0 +1,19 @@
+{% extends 'providusboard/base.html' %}
+
+
+{% block content %}
+           <div class="p-3 m-2">
+               <a href="{% url 'providus:balance' %}" class="btn btn-primary">Check Account Balance</a>
+           </div>
+           
+           <!-- <div class="p-3 m-2">
+            <a href="{% url 'providus:mail' %}" class="btn btn-primary">Mail User</a>
+        </div> -->
+        <div class="p-3 m-2">
+            <a href="{% url 'providus:status' %}" class="btn btn-primary">Check Transaction Status</a>
+        </div>
+        <!-- <div class="p-3 m-2">
+            <a href="{% url 'providus:search' %}" class="btn btn-primary">Search For A Transaction</a>
+        </div> -->
+
+ {% endblock content %}

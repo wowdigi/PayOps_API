@@ -1,0 +1,16 @@
+{%extends 'base.html' %}
+
+{% block content %}
+    <div class="">
+        <h1 class="text text-primary text-center">Bills Dashboard</h1>
+        <form method="post" style="width: 20em;">
+            {% csrf_token %}
+
+            <a type="submit" class="btn btn-primary m-1 form-control m-3 " href="{% url 'agent:requery' %}">Requery a previous transaction</a>
+            <a type="submit" class="btn btn-primary m-1 form-control m-3" href="{% url 'agent:retry' %}">Retry a previous transaction</a>
+            <a type="submit" class="btn btn-primary m-1 form-control m-3" href="{% url 'agent:balance' %}">Check Balance</a>
+            <a type="submit" class="btn btn-primary m-1 form-control m-3" href="{% url 'agent:refresh' %}">Refresh</a>
+        </form>
+        
+    </div>
+{% endblock content%}

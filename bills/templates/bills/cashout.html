@@ -1,0 +1,85 @@
+{% extends 'bills/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 mt-2">
+      <div class="card bills-card shadow-sm">
+        <div class="card-body text-center pay-item">
+          <a href="{% url 'transfer' %}">
+            <img src="{% static '/images/wallet.png' %}"/> <h5>Send Money</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 mt-2">
+      <div class="card bills-card shadow-sm">
+        <div class="card-body text-center pay-item">
+          <a href="{% url 'airtime' %}">
+            <img src="{% static '/images/call.png' %}"/> <h5>Buy Airtime</h5>
+          </a>
+        </div>
+      </div>
+        
+    </div>  
+  </div>     
+  <div class="row">
+    <div class="col-sm-6 mt-2">
+      <div class="card bills-card shadow-sm">
+        <div class="card-body text-center pay-item">
+          <a href="{% url 'data_bundles' %}">
+            <img src="{% static '/images/internet.png' %}"/> <h5>Buy Data</h5>
+          </a>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6 mt-2">
+      <div class="card bills-card shadow-sm">
+        <div class="card-body text-center pay-item">
+          <a href="{% url 'buy_electricity' %}">
+            <img src="{% static '/images/light-bulb.png' %}"/> <h5>Buy Electrcity</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>       
+  <div class="row">
+  <div class="col-sm-4 mt-2">
+    <div class="card bills-card shadow-sm">
+      <div class="card-body text-center pay-item pay-item-tv">
+        <a href="{% url 'pay_dstv' %}">
+          <img src="{% static '/images/dstv.png' %}"/> <h5>Pay</h5>
+        </a>
+      </div>
+    </div>
+  </div> 
+  <div class="col-sm-4 mt-2">
+    <div class="card bills-card shadow-sm">
+      <div class="card-body text-center pay-item pay-item-tv">
+        <a href="{% url 'pay_gotv' %}">
+          <img src="{% static '/images/gotv.png' %}"/> <h5>Pay</h5>
+        </a>
+      </div>
+    </div>
+  </div> 
+  <div class="col-sm-4 mt-2">
+    <div class="card bills-card shadow-sm">
+      <div class="card-body text-center pay-item pay-item-tv">
+        <a href="{% url 'pay_startimes' %}">
+          <img src="{% static '/images/startimes.png' %}"/> <h5>Pay</h5>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  
+  
+</div>
+<footer class="text-center py-3 footer-page">
+  <br> <br> <br>
+  <p> Powered by geekops &copy; 2021 </p>
+</footer>
+{% endblock content %}

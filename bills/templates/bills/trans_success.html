@@ -1,0 +1,14 @@
+{% extends 'bills/main.html' %}
+
+
+{% block content %}
+    <div class="text-center">
+        Transaction Completed
+
+        <p>Your Transaction of {{transactionAmount}} to {{beneficiaryAccountName}} was Successful</p>
+    </div>
+
+    {% include 'bills/retrytransaction.html' %}
+    
+{% endblock content %}
+    

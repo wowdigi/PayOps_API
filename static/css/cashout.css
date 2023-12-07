@@ -1,0 +1,43 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.bills-card{
+    border-radius: 30px;
+}
+
+.bills-card:hover{
+    transform: translate3D(0,-1px,0) scale(1.03);
+}
+
+.pay-item img{
+    border-radius: 10px;
+    max-width: 50px;
+}
+
+.pay-item-tv img{
+    border-radius: 10px;
+    max-width: 120px;
+}
+
+.pay-item a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.pay-item h5{
+    margin: 10px;
+}
+
+.balance-card{
+    border-radius: 25px;
+}
+
+.footer-page img{
+    max-width: 20px;
+}
+
+.footer-page a{
+    text-decoration: none;
+    color: inherit
+}

@@ -1,0 +1,12 @@
+{% extends 'bills/main.html' %}
+
+
+{% block content %}
+    <div class="text-center">
+        <div>Transaction Failed</div>
+
+        {{res}}
+    </div>
+    {% include 'bills/retrytransaction.html' %}
+    
+{% endblock content %}

@@ -1,0 +1,61 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+
+<br />
+<div class="container-md">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-5">
+                <div class="card-header">
+                    API Key Management
+                </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Organisation Name</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{profile.organisation_name}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Organisation API Endpoint</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{profile.api_endpoint}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">API Name</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    your API name will appear here
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">API Key</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{user.key}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <a class="btn btn-info " href="{% url 'profile' %}">Edit Profile</a>
+                    <a class="btn btn-dark " href="{% url 'api_request' %}">Change API Key</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    </div>
+</div>
+
+{% endblock%}

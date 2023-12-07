@@ -1,0 +1,11 @@
+{%extends 'base.html' %}
+
+
+{%block content%}
+    <h3 class="text text-primary text-center">Retry a Previous Transaction</h3>
+    <form action="" method="post" class="form">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button class="btn btn-primary">Retry Transaction</button>
+    </form>
+{%endblock%}
