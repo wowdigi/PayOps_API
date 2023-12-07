@@ -1,4 +1,4 @@
-from .bremit_api import NipTransfer
+from .geekops_api import NipTransfer
 
 class Remit:
 

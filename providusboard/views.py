@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from .forms import AccountStatusForm, TransactionStatusForm
 import json
 # Create your views here.
-from providusAPI.bremit import Remit
+from Betremit_API.providusAPI.geekops import Remit
 import locale
 
 

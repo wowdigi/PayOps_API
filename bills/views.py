@@ -13,7 +13,7 @@ from django.views.generic import TemplateView
 from baxi_api.geekops import geekops
 from baxi_api.geekops_misc import GenerateReference
 from .forms import *
-from providusAPI.bremit import Remit
+from Betremit_API.providusAPI.geekops import Remit
 from accounts.models import Transaction
 from django.contrib.auth.models import User
 from preauth.balance_auth import authenticate_balance

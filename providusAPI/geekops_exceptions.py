@@ -1,11 +1,11 @@
-class BremitExceptions(Exception):
+class geekopsExceptions(Exception):
     def __init__(self,msg):
         """This is an error relating to one of the functions in geekops"""
         super(BremitExceptions, self).__init__(msg)
         pass
 
 
-class ServerError(BremitExceptions):
+class ServerError(geeopsExceptions):
 
     """Raised when a server error is encountered"""
 
@@ -16,7 +16,7 @@ class ServerError(BremitExceptions):
         return "Transaction Query Failed with message" + self.err['errMsg']
 
 
-class AccountError(BremitExceptions):
+class AccountError(geekopsExceptions):
     """Raised during pre authentiction of user credentials"""
 
     def __init__(self, err):
@@ -26,7 +26,7 @@ class AccountError(BremitExceptions):
         return "Account details Query Failed with message"+self.err['errMsg']
 
 
-class TransferError(BremitExceptions):
+class TransferError(geekopsExceptions):
     """Raised when there is a failed transaction"""
 
     def __init__(self, err):

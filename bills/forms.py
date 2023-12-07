@@ -1,7 +1,7 @@
 from django import forms
 from django.forms.widgets import HiddenInput
 from baxi_api.geekops_misc import GenerateReference
-from providusAPI import bremit
+from PayOps_API.providusAPI import geekops
 plan_options = (
     ('prepaid', 'prepaid'),
     ('postpaid', 'postpaid'),

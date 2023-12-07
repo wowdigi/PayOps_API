@@ -1,4 +1,4 @@
-class Bremit(object):
+class geekops(object):
     """
     Base class for geekopss Providus Bank Endpoint.
     This class contains endpoints as Attributes

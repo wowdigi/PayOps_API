@@ -1,5 +1,5 @@
-import providusAPI.bremit_exceptions as geekopsExceptions
-from providusAPI.bremit import Remit
+import PayOps_API.providusAPI.geekops_exceptions as geekopsExceptions
+from PayOps_API.providusAPI.geekops import Remit
 
 
 name = "geekops_python"

@@ -2,8 +2,8 @@ import requests
 import json
 import urllib.parse as urlparse
 from urllib.parse import urlencode
-from .bremit_exceptions import ServerError, TransferError, AccountError
-from .bremit_base import Bremit
+from .geekops_exceptions import ServerError, TransferError, AccountError
+from .geekops_base import Bremit
 
 
 class NipTransfer(Bremit):
