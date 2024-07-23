@@ -107,24 +107,24 @@ WSGI_APPLICATION = 'geekops.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'geekops-test',
-#         'USER': 'postgres',
-#         'PASSWORD': 'functional',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'devops_u365',
+        'USER': 'devops_u365_user',
+        'PASSWORD': 'cgxAGRdo0NCXvtqhiaEcBChxa8oPalMw',
+        'HOST': 'dpg-cqfuihpu0jms7388gbk0-a',
+        'PORT': '5432',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
